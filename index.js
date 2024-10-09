@@ -1,7 +1,7 @@
 // import files
 require('dotenv').config()
 const express = require("express")
-const eco = require("./payment_types/ecocash")
+const eco = require("./payment_types/mobile_money")
 
 
 // declare express server

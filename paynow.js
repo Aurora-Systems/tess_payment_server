@@ -9,5 +9,7 @@ const integration_key = process.env.INTEGRATION_KEY
  */
 
 const paynow =  new Paynow(integration_id,integration_key)
+paynow.resultUrl = "http://example.com/gateways/paynow/update"
+paynow.returnUrl = "http://example.com/return?gateway=paynow&merchantReference=1234"
 
 module.exports = paynow;
