@@ -1,7 +1,7 @@
 // import files
 require('dotenv').config()
 const express = require("express")
-const eco = require("./payment_types/mobile_money")
+const MobileMoney = require("./payment_types/mobile_money")
 
 
 // declare express server
@@ -12,13 +12,9 @@ app.get('/',(req,res)=>{
     res.send('<a href="https://bleu.aurorasystems.co.zw">Bleu Finance Payment Solutions</a>')
 })
 
-/**
- * Endpoint which handles payments process and sends a success or fail status
- * @constructor 
- * @param  {string} req - request data
- */ 
-app.get('/payments/intiate_payment/ecocash', (req,res)=>{
-    
+app.post('/payments/intiate_payment/mobile', (req,res)=>{
+    const intiate_payment = MobileMoney(res.items,res.mobile_number, res.payment_method)
+    res.send(intiate_payment)
 })
 
 app.listen(port,()=>{
