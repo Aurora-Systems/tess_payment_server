@@ -1,6 +1,5 @@
 require('dotenv').config()
 const paynow = require("../paynow")
-const rp = require("../components")
 const moment = require("moment")
 /**
  * Ecocash payment handler
@@ -28,7 +27,7 @@ async function MobileMoney(items, mobile_number, payment_method){
             throw response
         }
     }catch(err){
-        return({data:null, error:response})
+        return({data:null, error:err.message})
     }
 }
 

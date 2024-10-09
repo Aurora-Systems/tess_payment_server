@@ -12,5 +12,4 @@ const request = [
         unit_charge:2
     }
 ]
-
-console.log(eco(request,"0771111111", "ecocash"))
+// console.log(eco(request,"0771111111", "ecocash"))
