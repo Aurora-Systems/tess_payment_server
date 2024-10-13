@@ -1,5 +1,6 @@
 // import files
 require('dotenv').config()
+const cors = requires("cors")
 const express = require("express")
 const serverless = require("serverless-http")
 const MobileMoney = require("./payment_types/mobile_money")
@@ -7,6 +8,9 @@ const MobileMoney = require("./payment_types/mobile_money")
 
 // declare express server
 const app = express()
+app.use(cors{
+    origin:"http://localhost:5173"
+})
 app.use(express.json())
 
 const route = express.Router();
