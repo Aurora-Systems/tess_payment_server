@@ -8,9 +8,9 @@ const MobileMoney = require("./payment_types/mobile_money")
 
 // declare express server
 const app = express()
-app.use(cors{
-    origin:"http://localhost:5173"
-})
+app.use(cors({
+    origin:"*"
+}))
 app.use(express.json())
 
 const route = express.Router();
