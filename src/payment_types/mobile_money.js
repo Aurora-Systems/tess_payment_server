@@ -5,7 +5,7 @@ const moment = require("moment")
  * Ecocash payment handler
  * @param {{"item", "quantity":number, "unit_charge":number}[]} items - request data
  * @param {string} mobile_number - Ecocash number
- * @param {"ecocash"|"netone"} payment_method - Mobile payment provider to be used
+ * @param {"ecocash"|"onemoney"} payment_method - Mobile payment provider to be used
  * @returns {{"data":null|any, "error":null|any}}
  */
 async function MobileMoney(items, mobile_number, payment_method){
