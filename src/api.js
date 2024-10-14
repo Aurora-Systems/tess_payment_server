@@ -4,6 +4,7 @@ const cors = require("cors")
 const express = require("express")
 const serverless = require("serverless-http")
 const MobileMoney = require("./payment_types/mobile_money")
+const CheckStatus = require("./check_poll_result")
 
 
 // declare express server
@@ -24,6 +25,13 @@ route.post('/payments/initiate_payment/mobile/', async(req,res)=>{
     // res.send(items)
     const initiate_payment =  await MobileMoney(items,mobile_number,payment_method)
     res.send(initiate_payment)
+})
+
+route.post('/payments/check_status', async(req,res)=>{
+    const {poll_url} = req.body;
+    const result = CheckStatus(poll_url)
+    res.send(result)
+
 })
 
 
