@@ -3,8 +3,8 @@ require('dotenv').config()
 const cors = require("cors")
 const express = require("express")
 const serverless = require("serverless-http")
-const MobileMoney = require("./payment_types/mobile_money")
 const CheckStatus = require("./check_poll_result")
+const InitializeTransaction = require("./process_payment")
 
 
 // declare express server
@@ -20,16 +20,16 @@ route.get('/',(req,res)=>{
     res.send('<a href="https://bleu.aurorasystems.co.zw">Bleu Finance Payment Solutions</a>')
 })
 
-route.post('/payments/initiate_payment/mobile/', async(req,res)=>{
-    const {items,mobile_number, payment_method} = req.body;
+route.post('/payments/initiate_transaction', async(req,res)=>{
+    const data = req.body;
     // res.send(items)
-    const initiate_payment =  await MobileMoney(items,mobile_number,payment_method)
+    const initiate_payment =  await InitializeTransaction(data)
     res.send(initiate_payment)
 })
 
 route.post('/payments/check_status', async(req,res)=>{
     const {poll_url} = req.body;
-    const result = CheckStatus(poll_url)
+    const result = await CheckStatus(poll_url)
     res.send(result)
 
 })

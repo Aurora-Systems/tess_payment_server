@@ -8,8 +8,8 @@ const integration_key = process.env.INTEGRATION_KEY
  * @param {string} integration_key - Merchant API KEY 
  */
 
-const paynow =  new Paynow(integration_id,integration_key)
-paynow.resultUrl = "http://example.com/gateways/paynow/update"
-paynow.returnUrl = "http://example.com/return?gateway=paynow&merchantReference=1234"
+const Pay =  new Paynow(integration_id,integration_key)
+Pay.resultUrl = "https://tessah.co.zw/success"
+Pay.returnUrl = "https://tessah.co.zw"
 
-module.exports = paynow;
+module.exports=Pay;
